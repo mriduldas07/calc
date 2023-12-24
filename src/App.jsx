@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { FaDivide, FaMinus } from "react-icons/fa6";
 import { MdKeyboardBackspace } from "react-icons/md";
 import { RxCross1 } from "react-icons/rx";
@@ -5,6 +6,12 @@ import "./App.css";
 import CalcButton from "./components/CalcButton";
 
 function App() {
+  const [number, setNumber] = useState("");
+  console.log(number);
+
+  const handleNumberClick = (numStr) => {
+    setNumber(numStr);
+  };
   return (
     <div>
       <h1 className="text-4xl font-bold italic underline">Human Calculator</h1>
@@ -23,25 +30,73 @@ function App() {
               <CalcButton>
                 <FaDivide size={19} />
               </CalcButton>
-              <CalcButton classN={"font-bold"}>7</CalcButton>
-              <CalcButton classN={"font-bold"}>8</CalcButton>
-              <CalcButton classN={"font-bold"}>9</CalcButton>
+              <CalcButton
+                classN={"font-bold"}
+                onClick={() => handleNumberClick("7")}
+              >
+                7
+              </CalcButton>
+              <CalcButton
+                classN={"font-bold"}
+                onClick={() => handleNumberClick("8")}
+              >
+                8
+              </CalcButton>
+              <CalcButton
+                classN={"font-bold"}
+                onClick={() => handleNumberClick("9")}
+              >
+                9
+              </CalcButton>
               <CalcButton classN={"bg-[#6C63FF]"}>
                 <RxCross1 size={17} />
               </CalcButton>
-              <CalcButton classN={"font-bold"}>4</CalcButton>
-              <CalcButton classN={"font-bold"}>5</CalcButton>
-              <CalcButton classN={"font-bold"}>6</CalcButton>
+              <CalcButton
+                classN={"font-bold"}
+                onClick={() => handleNumberClick("4")}
+              >
+                4
+              </CalcButton>
+              <CalcButton
+                classN={"font-bold"}
+                onClick={() => handleNumberClick("5")}
+              >
+                5
+              </CalcButton>
+              <CalcButton
+                classN={"font-bold"}
+                onClick={() => handleNumberClick("6")}
+              >
+                6
+              </CalcButton>
               <CalcButton>
                 <FaMinus size={18} />
               </CalcButton>
-              <CalcButton classN={"font-bold"}>1</CalcButton>
-              <CalcButton classN={"font-bold"}>2</CalcButton>
-              <CalcButton classN={"font-bold"}>3</CalcButton>
+              <CalcButton
+                classN={"font-bold"}
+                onClick={() => handleNumberClick("1")}
+              >
+                1
+              </CalcButton>
+              <CalcButton
+                classN={"font-bold"}
+                onClick={() => handleNumberClick("2")}
+              >
+                2
+              </CalcButton>
+              <CalcButton
+                classN={"font-bold"}
+                onClick={() => handleNumberClick("3")}
+              >
+                3
+              </CalcButton>
               <CalcButton classN={"font-bold"}>+</CalcButton>
-              {/* <div className="col-span-2">
-              </div> */}
-              <CalcButton classN={"font-bold col-span-2 w-36"}>0</CalcButton>
+              <CalcButton
+                classN={"font-bold col-span-2 w-36"}
+                onClick={() => handleNumberClick(0)}
+              >
+                0
+              </CalcButton>
               <CalcButton classN={"font-bold"}>.</CalcButton>
               <CalcButton classN={"font-bold"}>=</CalcButton>
             </div>
