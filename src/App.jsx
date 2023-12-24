@@ -11,8 +11,10 @@ function App() {
       <div className="bg-[#1D293A] text-white my-6">
         <div className="flex justify-center items-center">
           <div className="">
-            <div className="text-6xl pt-20 pb-8">16.7</div>
-            <div className="grid grid-cols-4 gap-4 pb-12">
+            <div className="pt-20 pb-6 flex justify-end items-center">
+              <h1 className="text-6xl">16.7</h1>
+            </div>
+            <div className="grid grid-cols-4 gap-4 pb-8">
               <CalcButton>AC</CalcButton>
               <CalcButton>
                 <MdKeyboardBackspace size={27} />
@@ -42,6 +44,12 @@ function App() {
               <CalcButton classN={"font-bold col-span-2 w-36"}>0</CalcButton>
               <CalcButton classN={"font-bold"}>.</CalcButton>
               <CalcButton classN={"font-bold"}>=</CalcButton>
+            </div>
+            <div className="pb-10">
+              <h1 className="text-xl font-medium py-4">Recent Calculations</h1>
+              <h1 className="text-lg">92.2 * 4 = 368.8</h1>
+              <h1 className="text-lg text-slate-500">92.2 * 4 = 368.8</h1>
+              <h1 className="text-lg text-slate-500">92.2 * 4 = 368.8</h1>
             </div>
           </div>
         </div>
