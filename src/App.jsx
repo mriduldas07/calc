@@ -6,11 +6,23 @@ import "./App.css";
 import CalcButton from "./components/CalcButton";
 
 function App() {
-  const [number, setNumber] = useState("");
-  console.log(number);
+  const [value, setValue] = useState("");
 
-  const handleNumberClick = (numStr) => {
-    setNumber(numStr);
+  const handleNumberClick = (input) => {
+    if (value.length < 8) {
+      setValue(value + input);
+    }
+  };
+
+  const handleBackSpace = () => {
+    setValue(value.slice(0, -1));
+  };
+
+  const handleClear = () => {
+    setValue("");
+  };
+  const calculate = () => {
+    setValue(eval(value));
   };
   return (
     <div>
@@ -19,15 +31,15 @@ function App() {
         <div className="flex justify-center items-center">
           <div className="">
             <div className="pt-20 pb-6 flex justify-end items-center">
-              <h1 className="text-6xl">16.7</h1>
+              <h1 className="text-6xl">{value ? value : "|"}</h1>
             </div>
             <div className="grid grid-cols-4 gap-4 pb-8">
-              <CalcButton>AC</CalcButton>
-              <CalcButton>
+              <CalcButton onClick={handleClear}>AC</CalcButton>
+              <CalcButton onClick={handleBackSpace}>
                 <MdKeyboardBackspace size={27} />
               </CalcButton>
               <CalcButton>%</CalcButton>
-              <CalcButton>
+              <CalcButton onClick={() => handleNumberClick("/")}>
                 <FaDivide size={19} />
               </CalcButton>
               <CalcButton
@@ -48,7 +60,7 @@ function App() {
               >
                 9
               </CalcButton>
-              <CalcButton classN={"bg-[#6C63FF]"}>
+              <CalcButton onClick={() => handleNumberClick("*")}>
                 <RxCross1 size={17} />
               </CalcButton>
               <CalcButton
@@ -69,7 +81,7 @@ function App() {
               >
                 6
               </CalcButton>
-              <CalcButton>
+              <CalcButton onClick={() => handleNumberClick("-")}>
                 <FaMinus size={18} />
               </CalcButton>
               <CalcButton
@@ -90,15 +102,27 @@ function App() {
               >
                 3
               </CalcButton>
-              <CalcButton classN={"font-bold"}>+</CalcButton>
+              <CalcButton
+                classN={"font-bold"}
+                onClick={() => handleNumberClick("+")}
+              >
+                +
+              </CalcButton>
               <CalcButton
                 classN={"font-bold col-span-2 w-36"}
                 onClick={() => handleNumberClick(0)}
               >
                 0
               </CalcButton>
-              <CalcButton classN={"font-bold"}>.</CalcButton>
-              <CalcButton classN={"font-bold"}>=</CalcButton>
+              <CalcButton
+                classN={"font-bold"}
+                onClick={() => handleNumberClick(".")}
+              >
+                .
+              </CalcButton>
+              <CalcButton classN={"font-bold"} onClick={calculate}>
+                =
+              </CalcButton>
             </div>
             <div className="pb-10">
               <h1 className="text-xl font-medium py-4">Recent Calculations</h1>
