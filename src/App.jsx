@@ -7,6 +7,11 @@ import CalcButton from "./components/CalcButton";
 
 function App() {
   const [value, setValue] = useState("");
+  // const [res,setRes] = useState([{
+  //   key:"",
+  //   val:""
+  // }])
+  // console.log(recentResult);
 
   const handleNumberClick = (input) => {
     if (value.length < 8) {
@@ -22,7 +27,13 @@ function App() {
     setValue("");
   };
   const calculate = () => {
-    setValue(eval(value));
+    try {
+      console.log(value);
+      setValue(eval(value));
+      console.log(value);
+    } catch (error) {
+      setValue("Syntex error");
+    }
   };
   return (
     <div>
